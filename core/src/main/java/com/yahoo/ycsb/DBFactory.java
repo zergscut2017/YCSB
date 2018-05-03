@@ -44,8 +44,18 @@ public final class DBFactory {
     }
 
     ret.setProperties(properties);
+    
+    
+    if (dbname == "geodeprofile") {
+    	
+    	return new ProfileDBWrapper(ret, tracer)
+    			
+    }else {
+    	
+        return new DBWrapper(ret, tracer);
 
-    return new DBWrapper(ret, tracer);
+    }
+
   }
 
 }
