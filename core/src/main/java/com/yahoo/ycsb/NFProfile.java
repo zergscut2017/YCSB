@@ -65,21 +65,21 @@ public class NFProfile implements PdxSerializable {
   }
 
   public void toData(PdxWriter writer) {
-    writer.writeString("nfProfileID", nfProfileID)
+    writer.writeString("nfProfileID", this.nfProfileID)
 // The markIdentifyField call for a field must 
 // come after the field's write method 
     .markIdentityField("nfProfileID")
-    .writeString("nfType", nfType)
-    .writeString("plmn", plmn)
-    .writeObject("snssai", snssai);
+    .writeString("nfType", this.nfType)
+    .writeString("plmn", this.plmn)
+    .writeObject("snssai", this.snssai);
 
   }
 
   public void fromData(PdxReader reader) {
-    nfProfileID = reader.readString("nfProfileID");
-	nfType = reader.readString("nfType");
-	plmn = reader.readString("plmn");
-	snssai = reader.readObject("snssai");
+    this.nfProfileID = reader.readString("nfProfileID");
+	this.nfType = reader.readString("nfType");
+	this.plmn = reader.readString("plmn");
+	this.snssai = reader.readObject("snssai");
   }	
   
   
