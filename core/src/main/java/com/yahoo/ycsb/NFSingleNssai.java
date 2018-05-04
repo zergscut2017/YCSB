@@ -1,9 +1,10 @@
 package com.yahoo.ycsb;
 
 /**
- * Creates a NFSingleNssai Data type.
- * 
- */
+* Creates a NFSingleNssai Data type.
+* @param sd sd value
+* @param sst sst value
+*/
 
 public class NFSingleNssai {
 	
