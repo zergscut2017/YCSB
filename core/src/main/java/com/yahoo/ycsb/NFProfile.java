@@ -1,5 +1,10 @@
 package com.yahoo.ycsb;
 
+/**
+ * Creates a NFProfile Data type.
+ * 
+ */
+
 public class NFProfile {
 
   private String nfProfileID;
