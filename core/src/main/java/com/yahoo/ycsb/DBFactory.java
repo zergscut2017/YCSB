@@ -48,11 +48,11 @@ public final class DBFactory {
     
     if (dbname == "geodeprofile") {
     	
-    	return new ProfileDBWrapper(ret, tracer)
+      return new ProfileDBWrapper(ret, tracer)
     			
-    }else {
+    } else {
     	
-        return new DBWrapper(ret, tracer);
+      return new DBWrapper(ret, tracer);
 
     }
 
