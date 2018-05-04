@@ -1,5 +1,9 @@
 package com.yahoo.ycsb;
 
+import org.apache.geode.pdx.PdxReader;
+import org.apache.geode.pdx.PdxSerializable;
+import org.apache.geode.pdx.PdxWriter;
+
 /**
 * Creates a NFSingleNssai Data type.
 */
