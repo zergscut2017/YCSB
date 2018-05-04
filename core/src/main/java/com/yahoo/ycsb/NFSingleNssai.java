@@ -2,8 +2,6 @@ package com.yahoo.ycsb;
 
 /**
 * Creates a NFSingleNssai Data type.
-* @param sd sd value
-* @param sst sst value
 */
 
 public class NFSingleNssai {
@@ -14,6 +12,11 @@ public class NFSingleNssai {
   public NFSingleNssai() {
   }
 
+  /**
+  * Creates a NFSingleNssai Data type.
+  * @param sd sd value
+  * @param sst sst value
+  */
   public NFSingleNssai(int sd, int sst) {
     this.sd = sd;
     this.sst = sst;
