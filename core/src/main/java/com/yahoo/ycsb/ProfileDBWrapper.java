@@ -127,7 +127,7 @@ public class ProfileDBWrapper extends DB {
    * @param result A HashMap of field/value pairs for the result
    * @return The result of the operation.
    */
-  public Status read(String table, String key, String fields, NFProfile result) {
+  public Status readProfile(String table, String key, String fields, NFProfile result) {
     try (final TraceScope span = tracer.newScope(scopeStringRead)) {
       long ist = measurements.getIntendedtartTimeNs();
       long st = System.nanoTime();
@@ -150,7 +150,8 @@ public class ProfileDBWrapper extends DB {
    * @param result A Vector of HashMaps, where each HashMap is a set field/value pairs for one record
    * @return The result of the operation.
    */
-  public Status scan(String table, String startkey, int recordcount, String fields, Vector<NFProfile> result) {
+  
+  public Status scanProfile(String table, String startkey, int recordcount, String fields, Vector<NFProfile> result) {
     try (final TraceScope span = tracer.newScope(scopeStringScan)) {
       long ist = measurements.getIntendedtartTimeNs();
       long st = System.nanoTime();
@@ -188,7 +189,7 @@ public class ProfileDBWrapper extends DB {
    * @param values A HashMap of field/value pairs to update in the record
    * @return The result of the operation.
    */
-  public Status update(String table, String key, NFProfile values) {
+  public Status updateProfile(String table, String key, NFProfile values) {
     try (final TraceScope span = tracer.newScope(scopeStringUpdate)) {
       long ist = measurements.getIntendedtartTimeNs();
       long st = System.nanoTime();
@@ -210,7 +211,7 @@ public class ProfileDBWrapper extends DB {
    * @param values A HashMap of field/value pairs to insert in the record
    * @return The result of the operation.
    */
-  public Status insert(String table, String key, NFProfile values) {
+  public Status insertProfile(String table, String key, NFProfile values) {
     try (final TraceScope span = tracer.newScope(scopeStringInsert)) {
       long ist = measurements.getIntendedtartTimeNs();
       long st = System.nanoTime();

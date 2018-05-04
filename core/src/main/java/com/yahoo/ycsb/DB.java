@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.Vector;
+import com.yahoo.ycsb.NFProfile;
 
 /**
  * A layer for accessing a database to be benchmarked. Each thread in the client
@@ -88,6 +89,8 @@ public abstract class DB {
    */
   public abstract Status read(String table, String key, Set<String> fields, Map<String, ByteIterator> result);
 
+  public abstract Status readProfile(String table, String key, String fields, NFProfile result);
+  
   /**
    * Perform a range scan for a set of records in the database. Each field/value pair from the result will be stored
    * in a HashMap.
@@ -102,6 +105,8 @@ public abstract class DB {
   public abstract Status scan(String table, String startkey, int recordcount, Set<String> fields,
                               Vector<HashMap<String, ByteIterator>> result);
 
+  public abstract Status scanProfile(String table, String startkey, int recordcount, String fields,
+          Vector<NFProfile> result);
   /**
    * Update a record in the database. Any field/value pairs in the specified values HashMap will be written into the
    * record with the specified record key, overwriting any existing values with the same field name.
@@ -112,6 +117,8 @@ public abstract class DB {
    * @return The result of the operation.
    */
   public abstract Status update(String table, String key, Map<String, ByteIterator> values);
+  
+  public abstract Status updateProfile(String table, String key, NFProfile values);
 
   /**
    * Insert a record in the database. Any field/value pairs in the specified values HashMap will be written into the
@@ -123,6 +130,9 @@ public abstract class DB {
    * @return The result of the operation.
    */
   public abstract Status insert(String table, String key, Map<String, ByteIterator> values);
+  
+  public abstract Status insertProfile(String table, String key, NFProfile values);
+  
 
   /**
    * Delete a record from the database.

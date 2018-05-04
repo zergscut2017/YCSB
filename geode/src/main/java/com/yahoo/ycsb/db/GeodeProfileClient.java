@@ -164,7 +164,7 @@ public class GeodeProfileClient extends DB {
   }
 
   @Override
-  public Status read(String table, String key, String fields, NFProfile result) {
+  public Status readProfile(String table, String key, String fields, NFProfile result) {
     Region<String, PdxInstance> r = getRegion(table);
     PdxInstance val = r.get(key);
     if (val != null) {
@@ -174,20 +174,20 @@ public class GeodeProfileClient extends DB {
   }
 
   @Override
-  public Status scan(String table, String startkey, int recordcount,
+  public Status scanProfile(String table, String startkey, int recordcount,
                      Set<String> fields, Vector<NFProfile> result) {
     // Geode does not support scan
     return Status.ERROR;
   }
 
   @Override
-  public Status update(String table, String key, NFProfile values) {
+  public Status updateProfile(String table, String key, NFProfile values) {
     getRegion(table).put(key, convertToBytearrayMap(values));
     return Status.OK;
   }
 
   @Override
-  public Status insert(String table, String key, NFProfile values) {
+  public Status insertProfile(String table, String key, NFProfile values) {
     getRegion(table).put(key, convertToBytearrayMap(values));
     return Status.OK;
   }

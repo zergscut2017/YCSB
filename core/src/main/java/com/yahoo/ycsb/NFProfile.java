@@ -1,11 +1,17 @@
 package com.yahoo.ycsb;
 
-/**
- * Creates a NFProfile Data type.
- * 
- */
+import org.apache.geode.pdx.PdxReader;
+import org.apache.geode.pdx.PdxSerializable;
+import org.apache.geode.pdx.PdxWriter;
 
-public class NFProfile {
+import com.ahoo.ycsb.NFSingleNssai;
+
+/*
+* Creates a NFProfile Data type.
+* 
+*/
+
+public class NFProfile implements PdxSerializable {
 
   private String nfProfileID;
 
@@ -58,5 +64,23 @@ public class NFProfile {
     this.snssai = snssai;
   }
 
-	
+  public void toData(PdxWriter writer) {
+    writer.writeString("nfProfileID", nfProfileID)
+// The markIdentifyField call for a field must 
+// come after the field's write method 
+    .markIdentityField("nfProfileID")
+    .writeString("nfType", nfType)
+    .writeString("plmn", plmn)
+    .writeObject("snssai", snssai)
+
+  }
+
+  public void fromData(PdxReader reader) {
+    nfProfileID = reader.readString("nfProfileID");
+	nfType = reader.readString("nfType");
+	plmn = reader.readString("plmn");
+	snssai = reader.readObject("snssai");
+  }	
+  
+  
 }

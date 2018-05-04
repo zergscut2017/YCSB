@@ -140,6 +140,20 @@ public class DBWrapper extends DB {
     }
   }
 
+
+  public Status readProfile(String table, String key, String fields, NFProfile result) {
+    try (final TraceScope span = tracer.newScope(scopeStringRead)) {
+      long ist = measurements.getIntendedtartTimeNs();
+      long st = System.nanoTime();
+      Status res = db.read(table, key, fields, result);
+      long en = System.nanoTime();
+      measure("READ", res, ist, st, en);
+      measurements.reportStatus("READ", res);
+      return res;
+    }
+  }
+
+ 
   /**
    * Perform a range scan for a set of records in the database.
    * Each field/value pair from the result will be stored in a HashMap.
@@ -164,6 +178,29 @@ public class DBWrapper extends DB {
     }
   }
 
+  /**
+   * Perform a range scan for a set of records in the database.
+   * Each field/value pair from the result will be stored in a HashMap.
+   *
+   * @param table The name of the table
+   * @param startkey The record key of the first record to read.
+   * @param recordcount The number of records to read
+   * @param fields The list of fields to read, or null for all of them
+   * @param result A Vector of HashMaps, where each HashMap is a set field/value pairs for one record
+   * @return The result of the operation.
+   */
+  public Status scanProfile(String table, String startkey, int recordcount, String fields, Vector<NFProfile> result) {
+    try (final TraceScope span = tracer.newScope(scopeStringScan)) {
+      long ist = measurements.getIntendedtartTimeNs();
+      long st = System.nanoTime();
+      Status res = db.scan(table, startkey, recordcount, fields, result);
+      long en = System.nanoTime();
+      measure("SCAN", res, ist, st, en);
+      measurements.reportStatus("SCAN", res);
+      return res;
+    }
+  }  
+  
   private void measure(String op, Status result, long intendedStartTimeNanos,
                        long startTimeNanos, long endTimeNanos) {
     String measurementName = op;
@@ -204,6 +241,28 @@ public class DBWrapper extends DB {
   }
 
   /**
+   * Update a record in the database. Any field/value pairs in the specified values HashMap will be written into the
+   * record with the specified record key, overwriting any existing values with the same field name.
+   *
+   * @param table The name of the table
+   * @param key The record key of the record to write.
+   * @param values A HashMap of field/value pairs to update in the record
+   * @return The result of the operation.
+   */
+  public Status updateProfile(String table, String key, NFProfile values) {
+    try (final TraceScope span = tracer.newScope(scopeStringUpdate)) {
+      long ist = measurements.getIntendedtartTimeNs();
+      long st = System.nanoTime();
+      Status res = db.update(table, key, values);
+      long en = System.nanoTime();
+      measure("UPDATE", res, ist, st, en);
+      measurements.reportStatus("UPDATE", res);
+      return res;
+    }
+  }
+
+  
+  /**
    * Insert a record in the database. Any field/value pairs in the specified
    * values HashMap will be written into the record with the specified
    * record key.
@@ -226,6 +285,28 @@ public class DBWrapper extends DB {
     }
   }
 
+  /**
+   * Insert a record in the database. Any field/value pairs in the specified
+   * values HashMap will be written into the record with the specified
+   * record key.
+   *
+   * @param table The name of the table
+   * @param key The record key of the record to insert.
+   * @param values A HashMap of field/value pairs to insert in the record
+   * @return The result of the operation.
+   */
+  public Status insertProfile(String table, String key, NFProfile values) {
+    try (final TraceScope span = tracer.newScope(scopeStringInsert)) {
+      long ist = measurements.getIntendedtartTimeNs();
+      long st = System.nanoTime();
+      Status res = db.insert(table, key, values);
+      long en = System.nanoTime();
+      measure("INSERT", res, ist, st, en);
+      measurements.reportStatus("INSERT", res);
+      return res;
+    }
+  }  
+  
   /**
    * Delete a record from the database.
    *

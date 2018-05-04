@@ -538,7 +538,7 @@ public class ProfileWorkload extends Workload {
     Status status;
     int numOfRetries = 0;
     do {
-      status = db.insert(table, dbkey, values);
+      status = db.insertProfile(table, dbkey, values);
       if (null != status && status.isOk()) {
         break;
       }
@@ -622,7 +622,7 @@ public class ProfileWorkload extends Workload {
     String fields = "NFProfileData";
     
     NFProfile cells = new NFProfile();
-    db.read(table, keyname, fields, cells);
+    db.readProfile(table, keyname, fields, cells);
 
   }
 
@@ -644,9 +644,9 @@ public class ProfileWorkload extends Workload {
 
     long ist = measurements.getIntendedtartTimeNs();
     long st = System.nanoTime();
-    db.read(table, keyname, fields, cells);
+    db.readProfile(table, keyname, fields, cells);
 
-    db.update(table, keyname, values);
+    db.updateProfile(table, keyname, values);
 
     long en = System.nanoTime();
 
@@ -665,7 +665,7 @@ public class ProfileWorkload extends Workload {
 
     String fields = "NFProfileData";
 
-    db.scan(table, startkeyname, len, fields, new Vector<NFProfile>());
+    db.scanProfile(table, startkeyname, len, fields, new Vector<NFProfile>());
   }
 
   public void doTransactionUpdate(DB db) {
@@ -676,7 +676,7 @@ public class ProfileWorkload extends Workload {
 
     NFProfile values = buildSingleValue(keyname);
 
-    db.update(table, keyname, values);
+    db.updateProfile(table, keyname, values);
   }
 
   public void doTransactionInsert(DB db) {
@@ -687,7 +687,7 @@ public class ProfileWorkload extends Workload {
       String dbkey = buildKeyName(keynum);
 
       NFProfile values = buildSingleValue(dbkey);
-      db.insert(table, dbkey, values);
+      db.insertProfile(table, dbkey, values);
     } finally {
       transactioninsertkeysequence.acknowledge(keynum);
     }

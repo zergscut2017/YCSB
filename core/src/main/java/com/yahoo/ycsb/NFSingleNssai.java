@@ -22,14 +22,15 @@ public class NFSingleNssai {
     this.sst = sst;
   }
 
-  public int getSd() {
-    return sd;
-  }
-
   /**
   * Creates a NFSingleNssai Data type.
   * @param sd sd value
   */
+  public int getSd() {
+    return sd;
+  }
+
+
   public void setSd(int sd) {
     this.sd = sd;
   }
