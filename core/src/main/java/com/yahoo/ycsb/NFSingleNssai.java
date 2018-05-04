@@ -46,4 +46,22 @@ public class NFSingleNssai {
   public void setSst(int sst) {
     this.sst = sst;
   }
+  
+
+  public void toData(PdxWriter writer) {
+    writer.writeInt("sd", this.sd)
+// No markIdentifyField call means both sd and sst are markidentifyField 
+    .writeInt("sst", this.sst);
+
+  }
+
+
+  public void fromData(PdxReader reader) {
+    sd = reader.readInt("sd");
+	sst = reader.readInt("sst");
+
+  }	
+  
+  
+  
 }

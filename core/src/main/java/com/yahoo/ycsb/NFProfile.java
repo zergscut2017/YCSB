@@ -76,10 +76,10 @@ public class NFProfile implements PdxSerializable {
   }
 
   public void fromData(PdxReader reader) {
-    this.nfProfileID = reader.readString("nfProfileID");
-	this.nfType = reader.readString("nfType");
-	this.plmn = reader.readString("plmn");
-	this.snssai = reader.readObject("snssai");
+    nfProfileID = reader.readString("nfProfileID");
+	nfType = reader.readString("nfType");
+	plmn = reader.readString("plmn");
+	snssai = reader.readObject("snssai");
   }	
   
   
