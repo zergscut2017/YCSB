@@ -21,6 +21,8 @@ import com.yahoo.ycsb.*;
 import com.yahoo.ycsb.generator.*;
 import com.yahoo.ycsb.generator.UniformLongGenerator;
 import com.yahoo.ycsb.measurements.Measurements;
+import com.yahoo.ycsb.NFProfile;
+import com.yahoo.ycsb.NFSingleNssai;
 
 import java.io.IOException;
 import java.util.*;
@@ -502,8 +504,8 @@ public class ProfileWorkload extends Workload {
 
   
   private NFSingleNssai buildSnssai() {
-	  NFSingleNssai value = new NFSingleNssai(100, 50)
-	  return value 
+	NFSingleNssai value = new NFSingleNssai(100, 50);
+	return value;
   }
   
   /**

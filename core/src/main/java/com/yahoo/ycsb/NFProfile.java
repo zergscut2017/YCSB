@@ -2,58 +2,56 @@ package com.yahoo.ycsb;
 
 public class NFProfile {
 
-    private String nfProfileID;
+  private String nfProfileID;
 
-    private String nfType;
+  private String nfType;
 
-    private String plmn;
+  private String plmn;
 
-    private NFSingleNssai snssai;
+  private NFSingleNssai snssai;
 
 
-    public NFProfile() {
-    }
+  public NFProfile() {
+  }
 
-    public NFProfile(String nfProfileID, String nfType, String plmn, NFSingleNssai snssai) {
-        this.nfProfileID = nfProfileID;
-        this.nfType = nfType;
-        this.plmn = plmn;
-        this.snssai = snssai;
-    }
+  public NFProfile(String nfProfileID, String nfType, String plmn, NFSingleNssai snssai) {
+    this.nfProfileID = nfProfileID;
+    this.nfType = nfType;
+    this.plmn = plmn;
+    this.snssai = snssai;
+  }
 
-    public String getNfProfileID() {
-        return nfProfileID;
-    }
+  public String getNfProfileID() {
+    return nfProfileID;
+  }
 
-    public void setNfProfileID(String nfProfileID) {
-        this.nfProfileID = nfProfileID;
-    }
+  public void setNfProfileID(String nfProfileID) {
+    this.nfProfileID = nfProfileID;
+  }
 
-    public String getNfType() {
-        return nfType;
-    }
+  public String getNfType() {
+    return nfType;
+  }
 
-    public void setNfType(String nfType) {
-        this.nfType = nfType;
-    }
+  public void setNfType(String nfType) {
+    this.nfType = nfType;
+  }
 
-    public String getPlmn() {
-        return plmn;
-    }
+  public String getPlmn() {
+    return plmn;
+  }
 
-    public void setPlmn(String plmn) {
-        this.plmn = plmn;
-    }
+  public void setPlmn(String plmn) {
+    this.plmn = plmn;
+  }
 
-    public NFSingleNssai getSnssai() {
-        return snssai;
-    }
+  public NFSingleNssai getSnssai() {
+    return snssai;
+  }
 
-    public void setSnssai(NFSingleNssai snssai) {
-        this.snssai = snssai;
-    }
+  public void setSnssai(NFSingleNssai snssai) {
+    this.snssai = snssai;
+  }
 
-	
-	
 	
 }
