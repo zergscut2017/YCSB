@@ -32,7 +32,7 @@ import com.yahoo.ycsb.DB;
 import com.yahoo.ycsb.DBException;
 import com.yahoo.ycsb.Status;
 
-import com.yahoo.ycsb.NFProfile
+import com.yahoo.ycsb.NFProfile;
 
 import org.apache.geode.cache.Cache;
 import org.apache.geode.cache.CacheFactory;
@@ -201,7 +201,7 @@ public class GeodeProfileClient extends DB {
   private PdxInstance convertToBytearrayMap(NFProfile values) {
     PdxInstanceFactory pdxInstanceFactory = cache.createPdxInstanceFactory(JSONFormatter.JSON_CLASSNAME);
 
-    pdxInstanceFactory.writeObject("NFProfileData", values)
+    pdxInstanceFactory.writeObject("NFProfileData", values);
 
     return pdxInstanceFactory.create();
   }
