@@ -49,7 +49,7 @@ public class ProfileDBWrapper extends DB {
   private final String scopeStringScan;
   private final String scopeStringUpdate;
 
-  public ProfileDBWrapper (final DB db, final Tracer tracer) {
+  public ProfileDBWrapper(final DB db, final Tracer tracer) {
     this.db = db;
     measurements = Measurements.getMeasurements();
     this.tracer = tracer;
