@@ -8,7 +8,7 @@ public class NFSingleNssai {
   public NFSingleNssai() {
   }
 
-  public NFSingleNssai(int sd, int sst) 
+  public NFSingleNssai(int sd, int sst) {
     this.sd = sd;
     this.sst = sst;
   }
