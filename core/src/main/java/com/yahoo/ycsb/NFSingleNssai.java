@@ -5,7 +5,7 @@ package com.yahoo.ycsb;
 */
 
 public class NFSingleNssai {
-	
+
   private int sd;
   private int sst;
 
@@ -26,6 +26,10 @@ public class NFSingleNssai {
     return sd;
   }
 
+  /**
+  * Creates a NFSingleNssai Data type.
+  * @param sd sd value
+  */
   public void setSd(int sd) {
     this.sd = sd;
   }
@@ -34,6 +38,10 @@ public class NFSingleNssai {
     return sst;
   }
 
+  /**
+  * Creates a NFSingleNssai Data type.
+  * @param sst sst value
+  */
   public void setSst(int sst) {
     this.sst = sst;
   }
