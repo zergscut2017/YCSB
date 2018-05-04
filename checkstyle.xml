@@ -63,7 +63,6 @@ LICENSE file.
     <module name="Translation"/>
 
     <module name="FileLength"/>
-    <module name="FileTabCharacter"/>
 
     <module name="TreeWalker">
 
@@ -101,7 +100,6 @@ LICENSE file.
         <!-- Checks for imports                              -->
         <!-- See http://checkstyle.sf.net/config_import.html -->
         <module name="IllegalImport"/> <!-- defaults to sun.* packages -->
-        <module name="RedundantImport"/>
 
 
         <!-- Checks for Size Violations.                    -->
@@ -148,9 +146,6 @@ LICENSE file.
         <!-- module name="AvoidInlineConditionals"/-->
         <module name="EmptyStatement"/>
         <module name="EqualsHashCode"/>
-        <module name="HiddenField">
-          <property name="ignoreConstructorParameter" value="true"/>
-        </module>
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
         <module name="MissingSwitchDefault"/>
@@ -170,10 +165,6 @@ LICENSE file.
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sf.net/config_misc.html -->
         <module name="ArrayTypeStyle"/>
-        <module name="Indentation">
-            <property name="basicOffset" value="2" />
-            <property name="caseIndent" value="0" />
-        </module> 
         <!-- <module name="TodoComment"/> -->
         <module name="UpperEll"/>
 
