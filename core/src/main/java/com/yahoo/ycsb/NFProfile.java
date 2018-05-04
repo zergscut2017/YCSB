@@ -71,7 +71,7 @@ public class NFProfile implements PdxSerializable {
     .markIdentityField("nfProfileID")
     .writeString("nfType", nfType)
     .writeString("plmn", plmn)
-    .writeObject("snssai", snssai)
+    .writeObject("snssai", snssai);
 
   }
 
