@@ -131,7 +131,7 @@ public class ProfileDBWrapper extends DB {
     try (final TraceScope span = tracer.newScope(scopeStringRead)) {
       long ist = measurements.getIntendedtartTimeNs();
       long st = System.nanoTime();
-      Status res = db.read(table, key, fields, result);
+      Status res = db.readProfile(table, key, fields, result);
       long en = System.nanoTime();
       measure("READ", res, ist, st, en);
       measurements.reportStatus("READ", res);
@@ -155,7 +155,7 @@ public class ProfileDBWrapper extends DB {
     try (final TraceScope span = tracer.newScope(scopeStringScan)) {
       long ist = measurements.getIntendedtartTimeNs();
       long st = System.nanoTime();
-      Status res = db.scan(table, startkey, recordcount, fields, result);
+      Status res = db.scanProfile(table, startkey, recordcount, fields, result);
       long en = System.nanoTime();
       measure("SCAN", res, ist, st, en);
       measurements.reportStatus("SCAN", res);
@@ -193,7 +193,7 @@ public class ProfileDBWrapper extends DB {
     try (final TraceScope span = tracer.newScope(scopeStringUpdate)) {
       long ist = measurements.getIntendedtartTimeNs();
       long st = System.nanoTime();
-      Status res = db.update(table, key, values);
+      Status res = db.updateProfile(table, key, values);
       long en = System.nanoTime();
       measure("UPDATE", res, ist, st, en);
       measurements.reportStatus("UPDATE", res);
@@ -215,7 +215,7 @@ public class ProfileDBWrapper extends DB {
     try (final TraceScope span = tracer.newScope(scopeStringInsert)) {
       long ist = measurements.getIntendedtartTimeNs();
       long st = System.nanoTime();
-      Status res = db.insert(table, key, values);
+      Status res = db.insertProfile(table, key, values);
       long en = System.nanoTime();
       measure("INSERT", res, ist, st, en);
       measurements.reportStatus("INSERT", res);

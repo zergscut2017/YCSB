@@ -4,7 +4,7 @@ import org.apache.geode.pdx.PdxReader;
 import org.apache.geode.pdx.PdxSerializable;
 import org.apache.geode.pdx.PdxWriter;
 
-import com.ahoo.ycsb.NFSingleNssai;
+import com.yahoo.ycsb.NFSingleNssai;
 
 /*
 * Creates a NFProfile Data type.
