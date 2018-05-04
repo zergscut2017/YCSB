@@ -513,7 +513,7 @@ public class ProfileWorkload extends Workload {
    */
   private NFProfile buildSingleValue(String key) {
     NFProfile value = new NFProfile();
-    snssai = buildSnssai();
+    NFSingleNssai snssai = buildSnssai();
     value.setNfProfileID(key);
     value.setNfType("udm");
     value.setPlmn("ericsson.se");
